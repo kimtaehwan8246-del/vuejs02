@@ -8,9 +8,11 @@
 <template>
   <p>줄임말과 원래말을 입력하세요.</p>
   <input type="text" v-bind:value="abbr" />
+  <!-- 단방향이라 입력해도 값 안바뀜 -->
   <input type="text" v-model="normal" />
   <hr />
   <abbr v-bind:title="normal">{{ abbr }}</abbr>
+  <!-- 마우스 올려놓으면 입력한 값 뜸 -->
 </template>
 
 <script>
@@ -18,6 +20,8 @@ import { ref } from 'vue';
 
 export default {
   // Composition API
+  // const로 변수 선언 후 입력
+  // ref()는 반응형
   setup() {
     const abbr = ref('KB');
     const normal = ref('KB Project Team');
