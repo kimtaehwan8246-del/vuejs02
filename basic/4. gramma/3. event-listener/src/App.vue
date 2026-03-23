@@ -22,15 +22,19 @@ export default {
   data() {
     return {
       counter2: 0,
+      //자동반응형 => this.로 다시 접근
     };
   },
   setup() {
     let counter = ref(0);
     //counter 변수는 ref를 통해 프록시객체로 변환되어 관리된다.
+    //반응형
     const onClick = (evt) => {
+      //evt : 이벤트 객체를 받는 파라미터
       if (evt) {
         evt.preventDefault();
         counter.value++;
+        //ref 값 변경
       }
     };
     return {
